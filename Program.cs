@@ -1,6 +1,7 @@
 ﻿
+
 using Discord;
-/*
+
 using Discord.API;
 using Discord.Net;
 using Discord.Audio;
@@ -8,7 +9,7 @@ using Discord.Commands;
 using Discord.Interactions;
 using Discord.Rest;
 using Discord.Webhook;
-*/
+
 using Discord.WebSocket;
 
 namespace octobot_rewritten
@@ -23,12 +24,15 @@ namespace octobot_rewritten
             _client = new DiscordSocketClient();
             _client.Log += Log;
             _client.MessageReceived += ClientOnMessageReceived;
+            
 
             var token = File.ReadAllText("./token.txt");
             
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
             await _client.SetGameAsync("octobot-rewritten o!help");
+            
+        
             // Block this task until the program is closed.
             await Task.Delay(-1);
             
