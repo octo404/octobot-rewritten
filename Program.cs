@@ -30,7 +30,7 @@ namespace octobot_rewritten
             
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
-            await _client.SetGameAsync("octobot-rewritten o!help");
+            await _client.SetGameAsync("octobot-rewritten ~help");
             
         
             // Block this task until the program is closed.
@@ -46,7 +46,7 @@ namespace octobot_rewritten
 
         private static Task ClientOnMessageReceived(SocketMessage arg)
         {
-            string prefix = "o!";
+            string prefix = "~";
 
             var input = arg.Content;
             var output = arg.Channel;
