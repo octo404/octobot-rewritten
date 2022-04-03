@@ -49,25 +49,28 @@ namespace octobot_rewritten
             string prefix = "~";
 
             var input = arg.Content;
-            var output = arg.Channel;
+            var output_channel = arg.Channel;
+            var output_user = arg.Author;
 
             if (input.StartsWith(prefix + "hello"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'hello'");
-                output.SendMessageAsync($"Hello '{arg.Author.Username}'!");
+                output_channel.SendMessageAsync($"Hello '{arg.Author.Mention}'!");
             }
 
             if(input.StartsWith(prefix + "ping"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'ping'");
 
-                output.SendMessageAsync("Pong.");
+                output_channel.SendMessageAsync("Pong.");
             }
             
             if(input.StartsWith(prefix + "help"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'help'");
-                output.SendMessageAsync("still working...");
+                string helptext = File.ReadAllText("./help.txt");
+                output_channel.SendMessageAsync($"Hey {arg.Author.Mention} look at your DM's!");
+                output_user.SendMessageAsync(helptext);
 
             }
             //ownercommand
@@ -75,7 +78,7 @@ namespace octobot_rewritten
             if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "sleep"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'sleep'");
-                output.SendMessageAsync("Shuting down...(not working)");
+                output_channel.SendMessageAsync("Shuting down...(not working)");
                 
             }
             return Task.CompletedTask;
