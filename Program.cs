@@ -51,7 +51,7 @@ namespace octobot_rewritten
             var input = arg.Content;
             var output = arg.Channel;
 
-            if (input.StartsWith(prefix + "hallo"))
+            if (input.StartsWith(prefix + "hello"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'hello'");
                 output.SendMessageAsync($"Hello '{arg.Author.Username}'!");
