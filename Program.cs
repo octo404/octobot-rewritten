@@ -63,12 +63,20 @@ namespace octobot_rewritten
 
                 output.SendMessageAsync("Pong.");
             }
-
+            
             if(input.StartsWith(prefix + "help"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'help'");
                 output.SendMessageAsync("still working...");
 
+            }
+            //ownercommand
+            
+            if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "sleep"))
+            {
+                Console.WriteLine($"Log: {arg.Author.Username}: used command 'sleep'");
+                output.SendMessageAsync("Shuting down...(not working)");
+                
             }
             return Task.CompletedTask;
         }
