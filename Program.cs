@@ -75,10 +75,12 @@ namespace octobot_rewritten
             }
             //ownercommands
             
-            if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "sleep"))
+            if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "shutdown"))
             {
-                Console.WriteLine($"Log: {arg.Author.Username}: used command 'sleep'");
-                output_channel.SendMessageAsync("Shuting down...(not working)");
+                Console.WriteLine($"Log: {arg.Author.Username}: used command 'shutdown'");
+                output_channel.SendMessageAsync("Shuting down...");
+                //legit hard kill it xD
+                Environment.Exit(0);
                 
             }
             return Task.CompletedTask;
