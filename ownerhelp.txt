@@ -1,0 +1,3 @@
+Commands for owner-use:
+-----------------------
+~shutdown = shutdown bot aka yeet it outta RAM
