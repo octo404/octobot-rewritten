@@ -68,11 +68,12 @@ namespace octobot_rewritten
             if(input.StartsWith(prefix + "help"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'help'");
-                string helptext = File.ReadAllText("./help.txt");
+                string helpfile = File.ReadAllText("./help.txt");
                 output_channel.SendMessageAsync($"Hey {arg.Author.Mention} look at your DM's!");
-                output_user.SendMessageAsync(helptext);
+                output_user.SendMessageAsync(helpfile);
 
             }
+
             //ownercommands
             
             if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "shutdown"))
