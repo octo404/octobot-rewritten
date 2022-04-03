@@ -73,7 +73,7 @@ namespace octobot_rewritten
                 output_user.SendMessageAsync(helptext);
 
             }
-            //ownercommand
+            //ownercommands
             
             if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "sleep"))
             {
