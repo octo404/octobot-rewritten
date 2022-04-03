@@ -52,6 +52,9 @@ namespace octobot_rewritten
             var output_channel = arg.Channel;
             var output_user = arg.Author;
 
+            double ownerid = Convert.ToDouble(File.ReadAllText("./ownerid.txt"));
+
+
             if (input.StartsWith(prefix + "hello"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'hello'");
@@ -75,12 +78,18 @@ namespace octobot_rewritten
             }
 
             //ownercommands
-            
-            if(arg.Author.Id == 375639304577482755 && input.StartsWith(prefix + "shutdown"))
+            if(arg.Author.Id == ownerid && input.StartsWith(prefix + "ownerhelp"))
+            {
+                Console.WriteLine($"Log: {arg.Author.Username}: used command 'ownerhelp'");
+                string ownerhelp_file = File.ReadAllText("./ownerhelp.txt");
+                output_user.SendMessageAsync(ownerhelp_file);
+            }
+
+            if(arg.Author.Id == ownerid && input.StartsWith(prefix + "shutdown"))
             {
                 Console.WriteLine($"Log: {arg.Author.Username}: used command 'shutdown'");
                 output_channel.SendMessageAsync("Shuting down...");
-                //legit hard kill it xD
+                //legit hard kill it 
                 Environment.Exit(0);
                 
             }
