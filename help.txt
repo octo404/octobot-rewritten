@@ -3,3 +3,4 @@ Commands:
 ~ping = see if the bot is online 
 ~hello = the bot greets you
 ~help = brings up the help commands you're looking at right now
+~rng = generates a random number between 1-100
