@@ -49,46 +49,57 @@ namespace octobot_rewritten
             string prefix = "~";
 
             var input = arg.Content;
-            var output_channel = arg.Channel;
-            var output_user = arg.Author;
+            var channel = arg.Channel;
+            var user = arg.Author;
 
             double ownerid = Convert.ToDouble(File.ReadAllText("./ownerid.txt"));
 
 
             if (input.StartsWith(prefix + "hello"))
             {
-                Console.WriteLine($"Log: {arg.Author.Username}: used command 'hello'");
-                output_channel.SendMessageAsync($"Hello '{arg.Author.Mention}'!");
+                Console.WriteLine($"Log: {user.Username}: used command 'hello'");
+                channel.SendMessageAsync($"Hello '{user.Mention}'!");
             }
 
             if(input.StartsWith(prefix + "ping"))
             {
-                Console.WriteLine($"Log: {arg.Author.Username}: used command 'ping'");
+                Console.WriteLine($"Log: {user.Username}: used command 'ping'");
 
-                output_channel.SendMessageAsync("Pong.");
+                channel.SendMessageAsync("Pong.");
             }
             
             if(input.StartsWith(prefix + "help"))
             {
-                Console.WriteLine($"Log: {arg.Author.Username}: used command 'help'");
+                Console.WriteLine($"Log: {user.Username}: used command 'help'");
                 string helpfile = File.ReadAllText("./help.txt");
-                output_channel.SendMessageAsync($"Hey {arg.Author.Mention} look at your DM's!");
-                output_user.SendMessageAsync(helpfile);
+                channel.SendMessageAsync($"Hey {user.Mention} look at your DM's!");
+                user.SendMessageAsync(helpfile);
 
             }
+            
+            if(input.StartsWith(prefix + "rng"))
+            {
+                Console.WriteLine($"Log: {user.Username}: used command 'rng'");
+                Random r = new Random();
+                channel.SendMessageAsync($"Your generated number is: **{r.Next(1, 100)}**");
+                
+            }
+            /*
+                TODO: RNG with custom number input
+            */
 
             //ownercommands
             if(arg.Author.Id == ownerid && input.StartsWith(prefix + "ownerhelp"))
             {
-                Console.WriteLine($"Log: {arg.Author.Username}: used command 'ownerhelp'");
+                Console.WriteLine($"Log: {user.Username}: used command 'ownerhelp'");
                 string ownerhelp_file = File.ReadAllText("./ownerhelp.txt");
-                output_user.SendMessageAsync(ownerhelp_file);
+                user.SendMessageAsync(ownerhelp_file);
             }
 
             if(arg.Author.Id == ownerid && input.StartsWith(prefix + "shutdown"))
             {
-                Console.WriteLine($"Log: {arg.Author.Username}: used command 'shutdown'");
-                output_channel.SendMessageAsync("Shuting down...");
+                Console.WriteLine($"Log: {user.Username}: used command 'shutdown'");
+                channel.SendMessageAsync("Shuting down...");
                 //legit hard kill it 
                 Environment.Exit(0);
                 
