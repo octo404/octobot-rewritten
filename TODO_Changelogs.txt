@@ -6,9 +6,14 @@ TODO's:
 
 
 Changelogs:
+
+
++++06.04.2022+++
+- change string name "output_channel" and "output_user" -> "channel" & "user"
+- added rng command, random number between 1-100 (custom number input coming soon...)
 -----------
 - added ownerhelp.txt
 - changed string name "helptext" -> "helpfile"
-- change string name "output_channel" and "output_user" -> "channel" & "user"
-- added rng command, random number between 1-100 (custom number input coming soon...)
+
+
 
