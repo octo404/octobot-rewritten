@@ -1,5 +1,5 @@
 Commands:
-----------
+---------
 ~ping = see if the bot is online 
 ~hello = the bot greets you
 ~help = brings up the help commands you're looking at right now
