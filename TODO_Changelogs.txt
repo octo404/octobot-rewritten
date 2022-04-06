@@ -1,0 +1,14 @@
+
+TODO's:
+-------
+- see how embeds work in discord.net
+- add custom input number in rng command
+
+
+Changelogs:
+-----------
+- added ownerhelp.txt
+- changed string name "helptext" -> "helpfile"
+- change string name "output_channel" and "output_user" -> "channel" & "user"
+- added rng command, random number between 1-100 (custom number input coming soon...)
+
